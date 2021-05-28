@@ -272,22 +272,3 @@ Person("john", 12) match {
   case Person(_, age) => s"${age} year old!"
 }
 
-def binarysearch(nums: List[Int], value: Int): Int = {
-  @tailrec
-  def rec(asd: List[Int], target: Int, start: Int, end: Int): Int= {
-    if (start > end) -1
-    else {
-      val mid = (start + end) / 2
-
-      asd(mid) match {
-        case elem if elem > target  => rec(asd, target, start, mid - 1)
-        case elem if elem == target => mid
-        case _  => rec(asd, target, mid + 1, end)
-      }
-    }
-  }
-  rec(nums, value, 0, nums.length - 1)
-}
-
-//binarySearch(Seq(1, 2, 3, 4, 5, 6), 4)
-binarysearch(List(1, 2, 3, 4, 5, 6), 4)
