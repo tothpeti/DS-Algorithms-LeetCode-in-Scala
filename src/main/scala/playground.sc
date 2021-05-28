@@ -272,3 +272,12 @@ Person("john", 12) match {
   case Person(_, age) => s"${age} year old!"
 }
 
+// Greatest common division
+def gcd(a: Int, b: Int): Int = {
+  val min = math.min(a, b)
+  val max = math.max(a, b)
+
+  if (min == 0) max
+  else gcd(min, max % min)
+}
+
