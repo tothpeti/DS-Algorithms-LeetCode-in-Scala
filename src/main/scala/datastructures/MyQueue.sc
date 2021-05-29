@@ -6,8 +6,8 @@ class MyQueue[A](values: A*) {
 
   def dequeue(): Unit =
     elements match {
-      case x :: Nil  => elements = List.empty[A]
-      case x :: tail => elements = tail
+      case _ :: Nil  => elements = List.empty[A]
+      case _ :: tail => elements = tail
       case Nil       => throw new NoSuchElementException
     }
 
