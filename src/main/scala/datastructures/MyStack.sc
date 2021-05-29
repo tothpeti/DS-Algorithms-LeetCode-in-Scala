@@ -12,7 +12,7 @@ class MyStack[A](values: A*){
     if (elements.isEmpty) throw new NoSuchElementException
     else {
       val popped = elements.last
-      elements = elements.init
+      elements = if (elements.isEmpty) List.empty[A] else elements.init
       popped
     }
 
@@ -24,7 +24,7 @@ object MyStack {
 }
 
 
-val s = MyStack(1, 2, 3, 4, 5)
+val s = MyStack(1)
 s.length()
 s.top()
 s.pop()
