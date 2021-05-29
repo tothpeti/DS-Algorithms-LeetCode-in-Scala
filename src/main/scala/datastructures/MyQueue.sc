@@ -24,6 +24,8 @@ class MyQueue[A](values: A*) {
     }
 
   def length(): Int = elements.length
+
+  def isEmpty(): Boolean = elements.isEmpty
 }
 
 object MyQueue {
