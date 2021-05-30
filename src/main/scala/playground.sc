@@ -280,6 +280,3 @@ def gcd(a: Int, b: Int): Int = {
   if (min == 0) max
   else gcd(min, max % min)
 }
-
-
-
