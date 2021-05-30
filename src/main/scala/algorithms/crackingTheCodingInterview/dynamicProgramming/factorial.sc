@@ -9,3 +9,19 @@ def factorial(n: Int): Long = {
 }
 
 factorial(6)
+
+def iterativeFactorial(n: Int): Long = {
+  val memo = new Array[Long](n + 1)
+
+  memo(0) = 1
+  memo(1) = 1
+  var i = 2
+  while (i <= n) {
+    memo(i) = memo(i - 1) * i
+    i += 1
+  }
+
+  memo(n)
+}
+
+iterativeFactorial(6)
