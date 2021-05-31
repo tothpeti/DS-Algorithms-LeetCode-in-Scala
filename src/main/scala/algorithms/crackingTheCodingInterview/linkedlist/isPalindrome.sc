@@ -30,8 +30,7 @@ def isPalindrome(head: Node): Boolean = {
     current = next
     i -= 1
   }
-  println(current)
-  println(reversed)
+
   // Check if part start to mid, and mid to end is equal
   while (current.next != null) {
     if (current.value == reversed.value) {
