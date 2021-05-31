@@ -1,10 +1,10 @@
 case class Node(data: Int, var left: Node = null, var right: Node = null)
 
-def reverseTree(root: Node): Node = {
+def invertTree(root: Node): Node = {
   if (root != null) {
     val tmp = root.left
-    root.left = reverseTree(root.right)
-    root.right = reverseTree(tmp)
+    root.left = invertTree(root.right)
+    root.right = invertTree(tmp)
   }
 
   root
@@ -19,4 +19,4 @@ val nodes =
             Node(6),
             Node(7)))
 
-reverseTree(nodes)
+invertTree(nodes)
