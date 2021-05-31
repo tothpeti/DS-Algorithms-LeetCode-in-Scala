@@ -17,27 +17,21 @@ def isPalindrome(head: Node): Boolean = {
   val mid = start + (count - start) / 2
 
   // Reverse linked list from start to mid
-  var tmp: Node = null
   var current = dummy.next
-  var next = current.next
+  var next: Node = null
   var reversed: Node = null
 
   var i = count - mid
-  while(next != null && i != 0) {
-    if (reversed == null) {
-      reversed = current
-      reversed.next = null
-    } else {
-      tmp = reversed
-      reversed = current
-      reversed.next = tmp
-    }
+  while(current != null && i != 0) {
+    next = current.next
+    current.next = reversed
+    reversed = current
 
     current = next
-    next = next.next
     i -= 1
   }
-
+  println(current)
+  println(reversed)
   // Check if part start to mid, and mid to end is equal
   while (current.next != null) {
     if (current.value == reversed.value) {
@@ -52,4 +46,4 @@ def isPalindrome(head: Node): Boolean = {
 
 val nodes = Node("a", Node("b", Node("b", Node("a"))))
 val nodes2 = Node("a", Node("b", Node("b")))
-isPalindrome(nodes2)
+isPalindrome(nodes)
