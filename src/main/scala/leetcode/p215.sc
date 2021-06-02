@@ -7,6 +7,7 @@ Note that it is the kth largest element in the sorted order, not the kth distinc
  */
 def findKthLargest(nums: Array[Int], k: Int): Int = {
   nums.sortWith((a, b) => a > b).take(k).last
+  // nums.sortInPlaceWith(_ > _)(k - 1)
 }
 
 findKthLargest(Array(3,2,3,1,2,4,5,5,6), 4)
