@@ -16,13 +16,16 @@ def deleteDuplicates(head: ListNode): ListNode = {
 
   while(curr.next != null) {
     if (curr.value == curr.next.value) {
+      // stepping till the next node's value is not equal to previous node's value
       while (curr.next != null && curr.value == curr.next.value) {
         curr = curr.next
       }
+
+      // Check if the next node is empty or not
       if (curr.next == null) {
         pre.next = null
-
       } else {
+        // need to step one step forward because we early stopped in the while loop
         curr = curr.next
         pre.next = curr
       }
