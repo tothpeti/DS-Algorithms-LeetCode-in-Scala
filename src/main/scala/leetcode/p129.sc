@@ -6,7 +6,7 @@ import scala.collection.mutable
 case class TreeNode(value: Int = 0, left: TreeNode = null, right: TreeNode = null)
 
 def sumNumbers(root: TreeNode): Int = {
-  var paths = mutable.ArrayBuffer[Vector[Int]]()
+  val paths = mutable.ArrayBuffer[Vector[Int]]()
 
   def dfs(node: TreeNode, path: Vector[Int]): Unit = {
     if (node == null) return
