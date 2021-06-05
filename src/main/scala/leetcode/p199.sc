@@ -22,6 +22,8 @@ def rightSideView(root: TreeNode): List[Int] = {
 }
 
 val nodes =
-  TreeNode()
+  TreeNode(1,
+    TreeNode(2, null, TreeNode(5)),
+    TreeNode(3, null, TreeNode(4)))
 
 rightSideView(nodes)
