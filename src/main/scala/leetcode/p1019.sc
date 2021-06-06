@@ -11,8 +11,6 @@ def nextLargerNodes(head: ListNode): Array[Int] = {
   var dummy = ListNode(0)
   dummy.next = head
 
-  if (head == null) return Array()
-
   val values = mutable.ArrayBuffer[Int]()
 
   dummy = dummy.next
@@ -21,26 +19,17 @@ def nextLargerNodes(head: ListNode): Array[Int] = {
     dummy = dummy.next
   }
 
-  val result = mutable.ArrayBuffer[Int]()
+  // Create a value.size-d Array with 0 values
+  val result = new Array[Int](values.size)
+  val stack = mutable.Stack[Int]()
 
   for (i <- values.indices) {
-    val current = values(i)
+    while (stack.nonEmpty && values(stack.top) < values(i))
+      result(stack.pop()) = values(i)
 
-    var found = false
-    var j = i + 1
-    while (j < values.length && !found) {
-      if (current < values(j)) {
-        result += values(j)
-        found = true
-      }
-      j += 1
-    }
-
-    if (!found) {
-      result += 0
-    }
+    stack.push(i)
   }
-  result.toArray
+  result
 }
 
 val nodes = ListNode(2, ListNode(7, ListNode(4, ListNode(3, ListNode(5)))))
